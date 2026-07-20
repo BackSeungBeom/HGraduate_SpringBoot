@@ -1,1 +1,16 @@
-spring.application.name=HGraduate
+spring:
+  application:
+    name: HGraduate
+  # datasource는 Docker Compose 자동 연동이 관리함 (compose.yaml 참조) — 여기서 직접 지정하지 않음
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+
+hgraduate:
+  seed:
+    # gradlew bootRun 기본 작업 디렉터리(HGraduate/HGraduate) 기준 seed-data/ 상대경로. 문서에 규정 없어 새로 정한 값 — 필요 시 오버라이드.
+    data-dir: ../seed-data
